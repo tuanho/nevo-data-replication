@@ -5,7 +5,7 @@
 1. `docker-compose up`
 2. Broswe [http://localhost:8080](http://localhost:8080)
 
-## Steps for iOS Mac:
+## Steps taken to build this project for iOS Mac:
 1. Installed Azure Data Studio on Mac
 2. Created docker-compose.yml - Microsoft SQL Server service in (mcr.microsoft.com/mssql/server:2019-latest)
 3. Wrote msql_init.sql script to create db, create tables, insert records, and enable CDC
