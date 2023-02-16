@@ -26,7 +26,7 @@
     - Kafka Converters
 - Debezium (db-z-ium) - open source distributed platform for change data capture that converts information from your existing databases into event streams, enabling applications to detect, and immediately respond to row-level changes in the databases
 
-Resoures:
+## Resoures
 - https://kafka.apache.org/
 - https://debezium.io/
 - https://www.confluent.io/confluent-cloud/
