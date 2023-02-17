@@ -1,6 +1,12 @@
 # Nevo Data Replication
 
-This is an example project showing how to replicate data from a source database (Microsoft SQL Server) and store the events in Kafka (using Debezium SQL Server connector). Finally, to replicate those Kafka events to a table in another database (Microsoft SQL Server).
+This is an example project showing how to replicate data from a source database to a sink database.
+
+- Docker containers for Microsoft SQL Server, Zookeeper, Kafka, Kafka Connect, Kafka UI, and Debezium
+- How to enable CDC on Microsoft SQL Server
+- Install Debezium Microsoft SQL Server connector
+- Write CDC changes to Kafka topics using Debezium SQL Server connector.
+- Write CDC changes to sink database to finish full replication procedure.
 
 ## Getting Started
 
@@ -33,6 +39,8 @@ This is an example project showing how to replicate data from a source database 
 - Debezium (db-z-ium) - open source distributed platform for change data capture that converts information from your existing databases into event streams, enabling applications to detect, and immediately respond to row-level changes in the databases
 
 ## Resoures
+- https://debezium.io/documentation/reference/2.1/connectors/sqlserver.html
+- https://debezium.io/documentation/reference/2.1/tutorial.html
 - https://kafka.apache.org/
 - https://debezium.io/
 - https://www.confluent.io/confluent-cloud/
