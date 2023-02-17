@@ -2,8 +2,11 @@
 
 ## Getting Started
 
-1. `docker-compose up`
-2. Broswe [http://localhost:8080](http://localhost:8080)
+1. Install `Azure Data Studio`
+2. `docker-compose up`
+3. In Azure Data Studio, open file `mssql_init.sql` and run file.
+4. Run script `create_connector.sh`
+2. Browse [http://localhost:8080](http://localhost:8080)
 
 ## Steps taken to build this project for iOS Mac:
 1. Installed Azure Data Studio on Mac

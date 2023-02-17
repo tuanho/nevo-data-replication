@@ -1,6 +1,7 @@
 USE master
 GO
 
+-- Creates DemoData database
 IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'DemoData')
 BEGIN
   CREATE DATABASE DemoData;
@@ -26,6 +27,7 @@ END;
 GO
 -- DROP TABLE Products;
 
+-- Enables CDC for Products table
 EXEC sys.sp_cdc_enable_table
 @source_schema = N'dbo',
 @source_name   = N'Products', 
@@ -34,6 +36,7 @@ EXEC sys.sp_cdc_enable_table
 @supports_net_changes = 0
 GO
 
+-- View CDC details
 -- EXEC sys.sp_cdc_help_change_data_capture
 -- GO
 
@@ -51,4 +54,6 @@ BEGIN
                 ('Eggs');
 END
 
-SELECT * from Products;
+SELECT * from dbo.Products;
+
+-- insert into products (ProductName) values ('Chili Oil');
