@@ -1,5 +1,7 @@
 # Nevo Data Replication
 
+This is an example project showing how to replicate data from a source database (Microsoft SQL Server) and store the events in Kafka (using Debezium SQL Server connector). Finally, to replicate those Kafka events to a table in another database (Microsoft SQL Server).
+
 ## Getting Started
 
 1. Install `Azure Data Studio`
@@ -13,6 +15,7 @@
 2. Created docker-compose.yml - Microsoft SQL Server service in (mcr.microsoft.com/mssql/server:2019-latest)
 3. Wrote msql_init.sql script to create db, create tables, insert records, and enable CDC
 4. Added to docker-compose.yml - zookeeper, kafka, kafka-connect, and kafka-ui
+5. Wrote `create_connector.sh` is is based on the results of `myssql_connector.json` via JSON.stringify() and pasted into curl command.
 
 ## Terms
 - Source - the original data to be replicated
