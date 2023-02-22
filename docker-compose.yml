@@ -46,8 +46,12 @@ services:
     networks:
       - kafkanet
 
+  # https://stackoverflow.com/questions/62525026/kafka-connect-exception-replication-factor-3-larger-than-available-brokers-1
   kafka-connect:
     image: debezium/connect
+    build:
+      context: .
+      dockerfile: kafka_connect_enriched.Dockerfile
     ports:
       - 8083:8083
     environment:
@@ -56,6 +60,10 @@ services:
       - CONFIG_STORAGE_TOPIC=my_connect_configs
       - OFFSET_STORAGE_TOPIC=my_connect_offsets
       - STATUS_STORAGE_TOPIC=my_connect_statuses
+      - CONNECT_CONFIG_STORAGE_REPLICATION_FACTOR=1
+      - CONNECT_OFFSET_STORAGE_REPLICATION_FACTOR=1
+      - CONNECT_STATUS_STORAGE_REPLICATION_FACTOR=1
+      - CONNECT_CONFLUENT_TOPIC_REPLICATION_FACTOR=1
     depends_on:
       - kafka
     networks:

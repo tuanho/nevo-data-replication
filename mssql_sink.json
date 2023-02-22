@@ -3,7 +3,7 @@
     "config": {
         "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
         "tasks.max": "1",
-        "topics": "customers",
+        "topics": "demo.DemoData.dbo.Products",
         "connection.url": "jdbc:sqlserver://mssqlsink:1434/DemoData?user=sa&password=Imgoingtotellalongstory123!@#",
         "transforms": "unwrap",
         "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState",
