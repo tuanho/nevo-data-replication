@@ -38,6 +38,9 @@ This is an example project showing how to replicate data from a source database 
     - Kafka Converters
 - Debezium (db-z-ium) - open source distributed platform for change data capture that converts information from your existing databases into event streams, enabling applications to detect, and immediately respond to row-level changes in the databases
 
+## CDC (Change Data Capture)
+- For SQL Server, materialied views are not supported
+
 ## Resoures
 - https://debezium.io/documentation/reference/2.1/connectors/sqlserver.html
 - https://debezium.io/documentation/reference/2.1/tutorial.html

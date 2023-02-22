@@ -1,3 +1,0 @@
-# /bin/bash
-
-curl -i -X POST -H "Accept:application/json" -H "Content-Type:application/json" localhost:8083/connectors/ -d '{"name":"products-connector","config":{"connector.class":"io.debezium.connector.sqlserver.SqlServerConnector","database.hostname":"mssql","database.port":"1433","database.user":"sa","database.password":"Imgoingtotellalongstory123!@#","database.names":"DemoData","topic.prefix":"demo","table.include.list":"dbo.Products","schema.history.internal.kafka.bootstrap.servers":"kafka:9092","schema.history.internal.kafka.topic":"schemahistory.demo","database.encrypt":false}}'

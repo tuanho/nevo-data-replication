@@ -13,6 +13,19 @@ services:
     networks:
       - kafkanet
 
+  mssqlsink:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - MSSQL_AGENT_ENABLED=true
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Imgoingtotellalongstory123!@#
+    ports:
+      - 1434:1433
+    volumes:
+      - mssql_sink_data:/var/opt/mssql
+    networks:
+      - kafkanet
+
   zookeeper:
     image: debezium/zookeeper
     ports:
@@ -64,6 +77,7 @@ networks:
 
 volumes:
   mssql_data:
+  mssql_sink_data:
   zk_data:
   zk_log:
   kafka_data:
