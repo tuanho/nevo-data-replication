@@ -2,6 +2,8 @@
 
 This is an example project showing how to replicate data from a source SQL database to a sink SQL database using Kafka, Kafka Connect, and Debezium.
 
+![Data Replication Architecture.png](Data Replication Architecture.png)
+
 ## Included in this project
 
 - Docker containers for Microsoft SQL Server, Zookeeper, Kafka, Kafka Connect, Kafka UI, and Debezium
@@ -30,7 +32,7 @@ This is an example project showing how to replicate data from a source SQL datab
 4. From terminal run:
     - `bin/create_source.sh`
     - `bin/create_sink.sh`
-5. On `Sink` database connection you should now see data replicated from the `Source` database.
+5. In Azure Data Studio, on `Sink` connection you should now see Products table replicated from the `Source` database.
     - `select * from Products`
 6. To brown the Kafka topics, open browser to [http://localhost:8080](http://localhost:8080)
 
@@ -61,3 +63,4 @@ This is an example project showing how to replicate data from a source SQL datab
 - https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-kafka-connect-debezium
 - https://medium.com/google-cloud/near-real-time-data-replication-using-debezium-4da77cef67ab
 - https://medium.com/nagoya-foundation/simple-cdc-with-debezium-kafka-a27b28d8c3b8
+- JDBC Sql Sever Connection reference: `jdbc:sqlserver://<server>:<port>;databaseName=Test;user=<user>;password=<password>`
