@@ -1,27 +1,38 @@
 # Nevo Data Replication
 
-This is an example project showing how to replicate data from a source database to a sink database.
+This is an example project showing how to replicate data from a source SQL database to a sink SQL database using Kafka, Kafka Connect, and Debezium.
+
+## Included in this project
 
 - Docker containers for Microsoft SQL Server, Zookeeper, Kafka, Kafka Connect, Kafka UI, and Debezium
 - How to enable CDC on Microsoft SQL Server
-- Install Debezium Microsoft SQL Server connector
+- Debezium Microsoft SQL Server connector
 - Write CDC changes to Kafka topics using Debezium SQL Server connector.
 - Write CDC changes to sink database to finish full replication procedure.
 
+## Prerequisites
+
+- `Docker Desktop` (will integrate with WSL on Windows)
+- Linux terminal with or WSL (Windows)
+- Install `Azure Data Studio`
+
 ## Getting Started
 
-1. Install `Azure Data Studio`
-2. `docker-compose up`
-3. In Azure Data Studio, open file `mssql_init.sql` and run file.
-4. Run script `create_connector.sh`
-2. Browse [http://localhost:8080](http://localhost:8080)
-
-## Steps taken to build this project for iOS Mac:
-1. Installed Azure Data Studio on Mac
-2. Created docker-compose.yml - Microsoft SQL Server service in (mcr.microsoft.com/mssql/server:2019-latest)
-3. Wrote msql_init.sql script to create db, create tables, insert records, and enable CDC
-4. Added to docker-compose.yml - zookeeper, kafka, kafka-connect, and kafka-ui
-5. Wrote `create_connector.sh` is is based on the results of `myssql_connector.json` via JSON.stringify() and pasted into curl command.
+1. From terminal, `docker-compose build && docker-compose up`
+2. Create Source & Sink connections in Azure Data Studio:
+    - host: `localhost`
+    - port: `1433` (source) & `1434` (sink)
+    - user: `sq`
+    - password: `Imgoingtotellalongstory123!@#`
+3. Azure Data Studio, open & execute files:
+    - `src/source/mssql_source_init.sql`
+    - `src/sink/mssql_sink_init.sql`
+4. From terminal run:
+    - `bin/create_source.sh`
+    - `bin/create_sink.sh`
+5. On `Sink` database connection you should now see data replicated from the `Source` database.
+    - `select * from Products`
+6. To brown the Kafka topics, open browser to [http://localhost:8080](http://localhost:8080)
 
 ## Terms
 - Source - the original data to be replicated
