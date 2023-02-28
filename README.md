@@ -2,7 +2,7 @@
 
 This is an example project showing how to replicate data from a source SQL database to a sink SQL database using Kafka, Kafka Connect, and Debezium.
 
-![Data Replication Architecture.png](Data Replication Architecture.png)
+![Data Replication Architecture](data-replication-architecture.png)
 
 ## Included in this project
 
