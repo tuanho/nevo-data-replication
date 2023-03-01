@@ -34,6 +34,9 @@ services:
       - 3888:3888
     networks:
       - kafkanet
+    volumes:
+      - zk_data:/var/lib/zookeeper/data
+      - zk_logs:/var/lib/zookeeper/log
 
   kafka:
     image: debezium/kafka
@@ -45,6 +48,8 @@ services:
       - zookeeper
     networks:
       - kafkanet
+    volumes:
+      - kafka_data:/var/lib/kafka/data
 
   # https://stackoverflow.com/questions/62525026/kafka-connect-exception-replication-factor-3-larger-than-available-brokers-1
   kafka-connect:
@@ -87,5 +92,5 @@ volumes:
   mssql_data:
   mssql_sink_data:
   zk_data:
-  zk_log:
+  zk_logs:
   kafka_data:

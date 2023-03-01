@@ -9,7 +9,7 @@ END;
 GO
 
 USE DemoData;
-GO  
+GO
 
 -- Enable CDC on this table
 -- See: https://learn.microsoft.com/en-us/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-ver16
@@ -22,7 +22,7 @@ GO
 
 IF OBJECT_ID('Products', 'U') IS NULL
 BEGIN
-  CREATE TABLE Products (ID int IDENTITY(1,1), ProductName nvarchar(max));
+  CREATE TABLE Products (ID int PRIMARY KEY IDENTITY(1,1), ProductName nvarchar(max));
 END;
 GO
 -- DROP TABLE Products;
@@ -57,3 +57,4 @@ END
 SELECT * from dbo.Products;
 
 -- insert into products (ProductName) values ('Chili Oil');
+-- delete from Products where ProductName = 'Chili Oil';

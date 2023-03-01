@@ -1,16 +1,20 @@
 {
-    "name": "mssql-source", 
+    "name": "mssql-source",
     "config": {
-        "connector.class": "io.debezium.connector.sqlserver.SqlServerConnector", 
-        "database.hostname": "mssql", 
-        "database.port": "1433", 
-        "database.user": "sa", 
-        "database.password": "Imgoingtotellalongstory123!@#", 
-        "database.names": "DemoData", 
-        "topic.prefix": "demo", 
-        "table.include.list": "dbo.Products", 
-        "schema.history.internal.kafka.bootstrap.servers": "kafka:9092", 
-        "schema.history.internal.kafka.topic": "schemahistory.demo",
-        "database.encrypt": false
+        "connector.class": "io.debezium.connector.sqlserver.SqlServerConnector",
+        "database.hostname": "mssql",
+        "database.port": "1433",
+        "database.user": "sa",
+        "database.password": "Imgoingtotellalongstory123!@#",
+        "database.names": "DemoData",
+        "table.include.list": "dbo.Products",
+        "topic.prefix": "source",
+        "schema.history.internal.kafka.bootstrap.servers": "kafka:9092",
+        "schema.history.internal.kafka.topic": "schema-changes.DemoData",
+        "database.encrypt": false,
+        "transforms": "route",
+        "transforms.route.type": "org.apache.kafka.connect.transforms.RegexRouter",
+        "transforms.route.regex": "([^.]+)\\.([^.]+)\\.([^.]+)\\.([^.]+)",
+        "transforms.route.replacement": "$4"
     }
 }
