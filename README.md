@@ -16,8 +16,8 @@ This is an example project showing how to replicate data from a source SQL datab
 
 1. Install Prerequisites
     - Terminal - Linux (Mac, Ubuntu, etc.) or Linux over WSL (Windows)
-    - Install [Docker Desktop](https://www.docker.com/products/docker-desktop/) (will integrate with WSL on Windows)
-    - Install [Azure Data Studio](https://azure.microsoft.com/en-us/products/data-studio)
+    - Install [Docker Desktop](https://www.docker.com/products/docker-desktop/) (integrates with WSL for Windows)
+    - Install [Azure Data Studio](https://azure.microsoft.com/en-us/products/data-studio) (or a SQL Server client of your choice)
 2. From terminal, `docker-compose build && docker-compose up`
 3. Create Source & Sink connections in Azure Data Studio:
     - host: `localhost`
@@ -35,7 +35,7 @@ This is an example project showing how to replicate data from a source SQL datab
 7. To brown the Kafka topics, open browser to [http://localhost:8080](http://localhost:8080)
 
 ## Notes
-- This project is not secure or production ready and therefore only intentended for educational purposes. You will need to use a secrets manager, trusted network communication, and modified configs to transition to production.
+- This project is not secure or production ready and therefore only intentended for educational purposes. You will need to use a secrets manager, trusted network communication, and production quality settings to transition to reliable use.
 - For SQL Server, materialied views are not supported in data replication as a limitation of SQL Server CDC.
 - JDBC Sql Sever Connection reference: `jdbc:sqlserver://<server>:<port>;databaseName=Test;user=<user>;password=<password>`
 
