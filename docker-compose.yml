@@ -7,7 +7,7 @@ services:
       - ACCEPT_EULA=Y
       - MSSQL_SA_PASSWORD=Imgoingtotellalongstory123!@#
     ports:
-      - 1433:1433
+      - 1434:1433
     volumes:
       - mssql_data:/var/opt/mssql
     networks:
@@ -20,14 +20,14 @@ services:
       - ACCEPT_EULA=Y
       - MSSQL_SA_PASSWORD=Imgoingtotellalongstory123!@#
     ports:
-      - 1434:1433
+      - 1435:1433
     volumes:
       - mssql_sink_data:/var/opt/mssql
     networks:
       - kafkanet
 
   zookeeper:
-    image: debezium/zookeeper
+    image: debezium/zookeeper:3.0.0.Final
     ports:
       - 2181:2181
       - 2888:2888
@@ -39,7 +39,7 @@ services:
       - zk_logs:/var/lib/zookeeper/log
 
   kafka:
-    image: debezium/kafka
+    image: debezium/kafka:3.0.0.Final
     ports:
       - 9092:9092
     environment:
