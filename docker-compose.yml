@@ -2,6 +2,7 @@ services:
 
   mssql:
     image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: source-db
     environment:
       - MSSQL_AGENT_ENABLED=true
       - ACCEPT_EULA=Y
@@ -15,6 +16,7 @@ services:
 
   mssqlsink:
     image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: target-db
     environment:
       - MSSQL_AGENT_ENABLED=true
       - ACCEPT_EULA=Y
@@ -28,6 +30,7 @@ services:
 
   zookeeper:
     image: debezium/zookeeper:3.0.0.Final
+    container_name: zookeeper
     ports:
       - 2181:2181
       - 2888:2888
@@ -40,6 +43,7 @@ services:
 
   kafka:
     image: debezium/kafka:3.0.0.Final
+    container_name: kafka
     ports:
       - 9092:9092
     environment:
@@ -56,6 +60,7 @@ services:
     build:
       context: .
       dockerfile: kafka_connect_enriched.Dockerfile
+    container_name: kafka-connect
     ports:
       - 8083:8083
     environment:
@@ -75,6 +80,7 @@ services:
 
   kafka-ui:
     image: provectuslabs/kafka-ui
+    container_name: kafka-ui
     ports:
       - 8080:8080
     environment:
